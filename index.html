@@ -145,11 +145,34 @@
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
         transition: transform 0.3s ease-in-out;
     }
+    .addon-icon {
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        cursor: pointer;
+        background: #fff;
+        padding: 10px;
+        border-radius: 50%;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+    }
+    .addon-container {
+        display: none;
+        position: fixed;
+        top: 50px;
+        left: 10px;
+        background: #fff;
+        border: 1px solid #ccc;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+    }
     </style>
 </head>
 <body>
     <div class="floating-circle" id="toggle-container">+</div>
-    <div class="container" id="draggable">
+    <div class="addon-icon" onclick="toggleAddon()">⏱️</div>
+    <div class="addon-container" id="addon-container">
         <div class="title">Iniciativa de combate</div>
         <div class="buttons">
             <button id="add-player-btn">+1 Jugador</button>
@@ -372,6 +395,11 @@ function dragFloatingCircle(elmnt) {
 }
 
 dragFloatingCircle(document.getElementById("toggle-container"));
+
+function toggleAddon() {
+    const container = document.getElementById('addon-container');
+    container.style.display = container.style.display === 'none' ? 'block' : 'none';
+}
 </script>
 </body>
 </html>
